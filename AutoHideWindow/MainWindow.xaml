@@ -5,8 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AutoHideWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" 
+        Height="{Binding WindowHeight, Mode=TwoWay}" 
+        Width="{Binding WindowWidth, Mode=TwoWay}"
+        Top="{Binding WindowTop, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+        Left="{Binding WindowLeft, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+        Topmost="{Binding WindowTopmost, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+        Visibility="{Binding WindowVisibility, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+        ResizeMode="CanMinimize"
+        Name="MainWindow">
+    <Window.DataContext>
+        <local:MainViewModel/>
+    </Window.DataContext>
     <Grid>
-        
+        <StackPanel Orientation="Horizontal" Margin="10">
+            <TextBlock Text="{Binding MouseX, StringFormat='X={0}, '}"/>
+            <TextBlock Text="{Binding MouseY, StringFormat='Y={0}, '}"/>
+            <TextBlock Text="{Binding WindowTop, StringFormat='Top={0}, '}"/>
+            <TextBlock Text="{Binding WindowLeft, StringFormat='Left={0}, '}"/>
+            <TextBlock Text="{Binding WindowTopmost, StringFormat='Topmost={0}, '}"/>
+            <TextBlock Text="{Binding IsContains, StringFormat='IsContains={0}'}"/>
+        </StackPanel>
     </Grid>
 </Window>
