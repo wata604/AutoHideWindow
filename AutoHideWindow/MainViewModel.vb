@@ -128,7 +128,7 @@ Public Class MainViewModel
                     CType(Math.Round(deviceTop), Integer),
                     CType(Math.Round(deviceWidth), Integer),
                     CType(Math.Round(deviceHeight), Integer),
-                    SWP_NOSIZE)
+                    SWP_NOACTIVATE)
 
                 If Me.MouseX >= deviceLeft AndAlso
                     Me.MouseX <= deviceLeft + deviceWidth AndAlso
@@ -186,5 +186,6 @@ Public Class MainViewModel
     Private Const SWP_NOSIZE As Integer = &H1
     ' 現在の位置を維持します（x、yは無視）
     Private Const SWP_NOMOVE As Integer = &H2
-
+    ' ウィンドウをアクティブにしない
+    Private Const SWP_NOACTIVATE As Integer = &H10
 End Class
