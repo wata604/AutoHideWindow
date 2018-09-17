@@ -17,14 +17,18 @@
     <Window.DataContext>
         <local:MainViewModel/>
     </Window.DataContext>
-    <Grid>
+    <WrapPanel Orientation="Vertical">
         <StackPanel Orientation="Horizontal" Margin="10">
-            <TextBlock Text="{Binding MouseX, StringFormat='X={0}, '}"/>
-            <TextBlock Text="{Binding MouseY, StringFormat='Y={0}, '}"/>
-            <TextBlock Text="{Binding WindowTop, StringFormat='Top={0}, '}"/>
-            <TextBlock Text="{Binding WindowLeft, StringFormat='Left={0}, '}"/>
-            <TextBlock Text="{Binding WindowTopmost, StringFormat='Topmost={0}, '}"/>
-            <TextBlock Text="{Binding IsContains, StringFormat='IsContains={0}'}"/>
+            <TextBlock Text="{Binding MouseX, StringFormat='X\=\{0\}\, '}"/>
+            <TextBlock Text="{Binding MouseY, StringFormat='Y\=\{0\}\, '}"/>
+            <TextBlock Text="{Binding WindowTop, StringFormat='Top\=\{0\}\, '}"/>
+            <TextBlock Text="{Binding WindowLeft, StringFormat='Left\=\{0\}\, '}"/>
+            <TextBlock Text="{Binding WindowTopmost, StringFormat='Topmost\=\{0\}\, '}"/>
+            <TextBlock Text="{Binding IsContains, StringFormat='IsContains\=\{0\}'}"/>
         </StackPanel>
-    </Grid>
+        <StackPanel Orientation="Horizontal" Margin="10">
+            <TextBlock Text="{Binding DeviceTop, StringFormat='DeviceTop\=\{0\}\, '}"/>
+            <TextBlock Text="{Binding DeviceLeft, StringFormat='DeviceLeft\=\{0\}\ '}"/>
+        </StackPanel>
+    </WrapPanel>
 </Window>

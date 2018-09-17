@@ -80,6 +80,31 @@ Public Class MainViewModel
         End Set
     End Property
 
+    Private _DeviceTop As Integer
+    Public Property DeviceTop As Integer
+        Get
+            Return _DeviceTop
+        End Get
+        Set(value As Integer)
+            If _DeviceTop = value Then Return
+            _DeviceTop = value
+            RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs("DeviceTop"))
+        End Set
+    End Property
+
+    Private _DeviceLeft As Integer
+    Public Property DeviceLeft As Integer
+        Get
+            Return _DeviceLeft
+        End Get
+        Set(value As Integer)
+            If _DeviceLeft = value Then Return
+            _DeviceLeft = value
+            RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs("DeviceLeft"))
+        End Set
+    End Property
+
+
     Private _IsContains As Boolean
     Public Property IsContains As Boolean
         Get
@@ -120,6 +145,9 @@ Public Class MainViewModel
                 Dim deviceTop = Me.WindowTop * dpiScaleFactor.Y
                 Dim deviceWidth = Me.WindowWidth * dpiScaleFactor.X
                 Dim deviceHeight = Me.WindowHeight * dpiScaleFactor.Y
+
+                Me.DeviceLeft = deviceLeft
+                Me.DeviceTop = deviceTop
 
                 SetWindowPos(
                     handle,
